@@ -7,7 +7,7 @@ import usePosts from "app/usePosts"
 // import RecentPostsDropdown from "./RecentPostsDropdown.final"
 // export default RecentPostsDropdown
 
-export default function RecentPostsDropdown({ uid, onSelect }) {
+export default function RecentPostsDropdown({ uid, onSelect}) {
   const posts = usePosts(uid)
 
   // don't care if we have no posts
@@ -27,7 +27,7 @@ export default function RecentPostsDropdown({ uid, onSelect }) {
           .filter(post => post.message.trim() !== "")
           .reverse()
           .map((post, index) => (
-            <MenuItem key={index}>{post.message}</MenuItem>
+            <MenuItem key={index} onSelect={()=> onSelect(post.message)}>{post.message}</MenuItem>
           ))}
       </MenuList>
     </Menu>
